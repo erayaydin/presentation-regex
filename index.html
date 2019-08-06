@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+<style>
+.doctrine-color {
+  color: #FC6A31;
+}
+                    .zf-color {
+  color: #68B604;
+}
+
+.doctrine-color {
+  color: #FC6A31;
+}
+
+.php-color {
+  color: #6C7EB7;
+
+</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section><h1>MERHABA!</h1></section>
+                <section><h1>Ben <span class="doctrine-color">Eray</span>!</h1></section>
+                <section>
+                    <h1>
+                        <abbr title="Regular Expression"><span class="zf-color">Reg</span><span class="doctrine-color">Ex</span></abbr>
+                        <span class="php-color">Nedir?</span>
+                    </h1>
+                </section>
+                <section>
+                    <section>
+                        <h1>Nerelerde <span class="zf-color">Kullanılır?</span></h1>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>veri kontrolü (örn, saatin doğru girilip girilmediği)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>veri kazıma (örn, web sayfalarındaki içeriklerin alınması)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>veri dönüşümü (örn, raw formatından belirli bir formata dönüşüm)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>string ayrıştırma (örn, bir dosyadaki tüm logların kategorileştirilmesi)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>string değiştirme</li>
+                        </ul>
+                    </section>
+                    <section>
+                    <ul>
+                        <li>syntax highlighting, dosya isimlendirme, packet sniffing, yazı ile ilgili verisi olan tüm alanlar...</li>
+                    </ul>
+                    </section>
+                </section>
+                <section>
+                    <h2>Belirteçler<br><span class="php-color">^</span> ve <span class="php-color">$</span></h2>
+                    <pre><code data-trim data-noescape>
+^Ben        Ben ile başlayan tüm stringleri işaret eder.
+tamamladı$  tamamladı ile biten tüm stringleri işaret eder.
+^Mutlu Son$ Mutlu Son ile başlayıp biten tüm stringleri işaret eder.
+deneme      Herhangi bir metin içerisinde deneme yazan stringi işaret eder.
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Nicelikler<br><span class="php-color">*</span>,<span class="php-color">+</span>,<span class="php-color">?</span> ve <span class="php-color">{}</span></h2>
+                    <pre><code data-trim data-noescape>
+abc*       ab ile beraber 0 veya daha fazla c olan stringleri yakalar.
+abc+       ab ile beraber 1 veya daha fazla c olan stringleri yakalar.
+abc?       ab ile beraber 0 veya 1 adet c olan stringleri yakalar.
+abc{2}     ab ile beraber 2 adet c olan stringleri yakalar.
+abc{2,}    ab ile beraber 2 veya daha fazla c olan stringleri yakalar.
+abc{2,6}   ab ile beraber 2 ile 6 adet arasında c olan stringleri yakalar.
+a(bc)*     a ile beraber 'bc' ikilisinden 0 veya daha fazla olan stringleri yakalar.
+a(bc){2,5} a ile beraber 'bc' ikilisinden 2-5 adet olan stringleri yakalar.
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Veya Operatörü<br><span class="php-color">|</span> veya <span class="php-color">[ ]</span></h2>
+                    <pre><code data-trim data-noescape>
+a(b|c) a ile beraber b veya c olan stringleri yakalar.
+a[bc]  yukarıdaki ile aynı
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Karakter Sınıfları<br><span class="php-color">\d</span>,<span class="php-color">\w</span>,<span class="php-color">\s</span> ve <span class="php-color">.</span></h2>
+                    <pre><code data-trim data-noescape>
+\d sayı olan tek bir karakteri işaret eder.
+\w kelime karakteri(alfanumerik veya alt çizgi) işaret eder.
+\s boşluk karakteri(tablar ve satır sonları dahil) işaret eder.
+.  herhangi bir karakteri işaret eder.
+                    </code></pre>
+                    <pre><code data-trim data-noescape>
+\D ???
+\W ???
+\S ???
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Flag ler</h2>
+                    <ul>
+                        <li><b>g</b>(<b>global</b>) ilk bulunan string sonrası dönüş yapmaz, sona kadar tüm eşleşmeleri getirir.</li>
+                        <li><b>m</b>(<b>multi-line</b>) <span class="php-color">^</span> ve <span class="php-color">$</span> belirteçleri tüm stringi değil satırı belirtir.</li>
+                        <li><b>i</b>(<b>insensitiv</b>) tüm sorgunun büyük-küçük harf duyarsız olmasını sağlar.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Gruplama ve Yakalama<br><span class="php-color">( )</span></h2>
+                    <pre><code data-trim data-noescape>
+a(bc) değeri bc olan yakalama grubu oluşturur.
+a(?:bc)* yakalama grubu özelliğini ?: ile iptal ettik.
+a(?<foo>bc) gruplamaya foo ismini ?<foo> ile verdik.
+                    </pre></code>
+                </section>
+                <section>
+                    <h2>Sıkıcı Kısımları Geçelİm, ÖRNEKLER</h2>
+                </section>
+                <section>
+                    <img src="https://media2.giphy.com/media/CmQQsUxwjBEgU/giphy.gif?cid=3640f6095c94addc507466646f7eba9e" />
+                </section>
+                <section>
+                    <h2>Nerede Deneyeceğİz?</h2>
+                    <p>https://regex101.com/</p>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
